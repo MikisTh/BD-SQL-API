@@ -8,17 +8,15 @@ serão listados todos os alimentos, com dados disponíveis, considerando a base 
 //Busca por componente: serão listas todos os alimentos considerando quantidade do nutriente, conforme o grupo de alimentos ao qual pertencem, considerando a TBCA – Avaliação de Ingestão de Nutrientes. 
 Os relatórios para consulta poderão ser apresentados em ordem crescente ou descrente do componente no alimento.
 
-**Fetch APi Javascript TACO
-// Solicitação GET.
+
+
 fetch('https://www.tbca.net.br/')
-// Tratamento do sucesso
  .then(response => response.json()) // converter para json
- .then(data => {  })  //imprimir dados
+ .then(data => {  }) 
  .catch(error => {console.error('Erro:', error);
  });
 
-**Fetch APi Javascript DRI / RDA
-// Solicitação GET.
+
 fetch('https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx')
 // Tratamento do sucesso
  .then(response => response.json()) // converter para json
@@ -26,23 +24,24 @@ fetch('https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx')
  .catch(error => {console.error('Erro:', error);
  });
 
-// Solicitação GET.
-fetch('https://www.tbca.net.br/')
-// Tratamento do sucesso
-    .then(response => response.json())  // converter para json
-    .then(json => console.log(json))    //imprimir dados no console
-    .catch(err => console.log('Erro de solicitação', err)); // lidar com os erros por catch
 
-// Solicitação GET.
+fetch('https://www.tbca.net.br/')
+    .then(response => response.json()) 
+    .then(json => console.log(json))   
+    .catch(err => console.log('Erro de solicitação', err)); 
+});
+
+
 fetch('https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx', {
   method: "GET",
-  headers: {"Content-type": "application/json;charset=UTF-8"}   // passa um objeto JSON para a propriedade "headers"
+  headers: {"Content-type": "application/json;charset=UTF-8"}  
 })
-.then(response => response.json())   // converter para json
-.then(json => console.log(json));  //imprimir dados no console
-.catch(err => console.log(err)); // lidar com os erros por catch
+.then(response => response.json())
+.then(json => console.log(json));  
+.catch(err => console.log(err)); 
+})
 
-//Solicitação POST.
+
 fetch(‘https://www.tbca.net.br/', {
 method: ‘POST’,
 body: JSON.stringify({
@@ -54,10 +53,11 @@ headers: {
 “Content-type”: “application/json; charset=UTF-8”
 }
 })
-.then(response => response.json()) // converter para json
-.then(json => console.log(json))  //imprimir dados no console
+.then(response => response.json())
+.then(json => console.log(json))  
+.catch(err => console.log(err)); 
+})
 
-//Solicitação PUT.
 fetch(‘https://www.tbca.net.br/', {
 method: ‘PUT’,
 body: JSON.stringify({
@@ -70,10 +70,12 @@ headers: {
 “Content-type”: “application/json; charset=UTF-8”
 }
 })
-.then(response => response.json()) // converter para json
-.then(json => console.log(json)) //imprimir dados no console
+.then(response => response.json()) 
+.then(json => console.log(json)) 
+.catch(err => console.log(err)); 
+})
 
-//Solicitação PATCH.
+
 fetch(‘https://www.tbca.net.br/', {
 method: ‘PATCH’,
 body: JSON.stringify({
@@ -85,8 +87,14 @@ headers: {
 })
 .then(response => response.json())
 .then(json => console.log(json))
+.catch(err => console.log(err)); 
+})
 
-//Solicitação DELETE.
 fetch(‘https://www.tbca.net.br/', {
 method: ‘DELETE’
+headers: {"Content-type": "application/json;charset=UTF-8"}   
+})
+.then(response => response.json()) 
+.then(json => console.log(json));  
+.catch(err => console.log(err)); 
 })
